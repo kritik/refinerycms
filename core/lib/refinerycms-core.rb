@@ -149,7 +149,7 @@ module Refinery
         ::Rack::Utils.module_eval do
           def escape(s)
             regexp = case
-              when RUBY_VERSION >= '1.9' && s.encoding === Encoding.find('UTF-8')
+              when RUBY_VERSION >= '1.9' && s.to_s.encoding === Encoding.find('UTF-8')
                 /([^ a-zA-Z0-9_.-]+)/u
               else
                 /([^ a-zA-Z0-9_.-]+)/n
